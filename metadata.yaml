@@ -1,0 +1,38 @@
+_repo: Pioneers-of-France-in-the-New-World_3721
+_version: 0.0.1
+creator:
+  author:
+    agent_name: Parkman, Francis
+    alias: Parkman, F. (Francis)
+    birthdate: 1823
+    deathdate: 1893
+    gutenberg_agent_id: '510'
+    url: http://www.gutenberg.org/2009/agents/510
+    wikipedia: http://en.wikipedia.org/wiki/Francis_Parkman
+description: In the sixteenth century, Spain claimed the fabled New World, and a rash
+  of explorers sailed there seeking riches and, most famously, a fountain of youth.
+  Although France made inroads into Florida, ultimately the French, like the Spanish,
+  failed to establish dominion over North America. Francis Parkman tells why. The
+  first part of Pioneers of France in the New World deals with the attempts of the
+  Spanish and the French Huguenots to occupy Florida; the second, with the expeditions
+  of Jacques Cartier and Samuel de Champlain and French colonial endeavors in Canada
+  and Acadia.
+gutenberg_bookshelf:
+- Canada
+- United States
+gutenberg_issued: '2003-02-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '3721'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcsh 'Canada -- History -- To 1763 (New France)'
+- !lcc 'F1001'
+- !lcsh 'Florida -- History -- Huguenot colony, 1562-1565'
+- !lcsh 'Champlain, Samuel de, 1567-1635'
+- GITenberg
+title: Pioneers of France in the New World
+url: http://www.gutenberg.org/ebooks/3721
