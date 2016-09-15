@@ -1,0 +1,61 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo pip install git+https://github.com/gitenberg-dev/gitberg
+- sudo pip install pillow
+- sudo pip install cssutils
+- sudo pip install docutils
+- sudo pip install roman
+- sudo pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: jI/JckABU3BsDKVmE/lXPE1n/f1TIwTprplXXqeLXo1olqmsjG6anYY+lHpNTeqEjwsJlPjw61RzgJSSJN0RMEnc874yIxTG1TIFcHj7D3TPiMB3KXIxa1cENOOmPQ6Uq4qgBrSmXWDiGKtQQm4zG395uHy5XTIqsp5L0Z1GWZ0qpBv584Bj54dy0yvnFVbsiIaQcRtpHbQ+bwTh+GTdHVfkvGN4Z/WOwiqoseFdaM/LsuiK8c8pNB7GWmZ3TM3JnrdQOkDp6mCpNaNT6d2thl2MvyOuI5P23lxCOQKLqWzDeE8quLIkS7o95YRbku4pVa8ig1hFSUVCnnvA+8WrwnSQVnNsvr67lHRYZMj1CJnxQ8Vnjk8cm2I5Jt9MNosreO3k4/1YMC17IOexcNmKEWUD8J0uFa+WugcxqPpXcbWNW5bU9uTnkymGNQXMOz/YoKz9xVisfpIli6UtdkcBdka1er6IDjPM3kWpIVBdlbj0M148NfF39qLPcJsjgdguaygvMap7qxSgh/4pD+QibQYquVT7zYhHbsW8+15GUuT01bI7fLKJBVanJaatnSFE2dvgLyja5jRsjTtKxqp4/AzqRttVn+Xo4mpk6lhdIbBBJBXI4S6nwnkoaA22QP0YFD0hryYvdf65qLvgZLpaX84bMzrtHchWYu/9kIuIXqw=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  "on":
+    repo: GITenberg/Pioneers-of-France-in-the-New-World_3721
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy
