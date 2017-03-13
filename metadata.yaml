@@ -1,5 +1,8 @@
 _repo: Pioneers-of-France-in-the-New-World_3721
-_version: 0.1.0
+_version: 0.2.0
+covers:
+- cover_type: generated
+  image_path: cover.png
 creator:
   author:
     agent_name: Parkman, Francis
@@ -17,6 +20,8 @@ description: In the sixteenth century, Spain claimed the fabled New World, and a
   Spanish and the French Huguenots to occupy Florida; the second, with the expeditions
   of Jacques Cartier and Samuel de Champlain and French colonial endeavors in Canada
   and Acadia.
+edition_identifiers:
+  edition_id: http://www.gutenberg.org/ebooks/3721#Pioneers-of-France-in-the-New-World
 gutenberg_bookshelf:
 - Canada
 - United States
